@@ -1,0 +1,35 @@
+body {
+	background-color: pink;
+}
+
+.card {
+	padding: 20px;
+	background-color: #fff;
+	width: 300px;
+
+	&__header {
+		position: relative;
+	}
+	&__img {
+		height: auto;
+		width: 100%;
+	}
+	&__icon {
+		position: absolute;
+		background-color: #fff;
+		top: 20px;
+		right: 20px;
+		height: 40px;
+		width: 40px;
+		border-radius: 50%;
+		display: grid;
+		place-content: center;
+		color: red;
+		font-size: 25px;
+		cursor: pointer;
+	}
+	&__name {
+		color: blue;
+		text-transform: capitalize;
+	}
+}

@@ -1,0 +1,42 @@
+[
+	{
+		"id": 1,
+		"name": "peacock",
+		"phone": "111-111-111",
+		"email": "msh@yahoo.com",
+		"image": { "url": "https://images.unsplash.com/photo-1639453632997-31ca966ec491?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OHx8Z3JlZW4lMjBiaWclMjBiaXJkc3xlbnwwfHwwfHw%3D&auto=format&fit=crop&w=900&q=60", "alt": "peacock" },
+		"favoured": false
+	},
+	{
+		"id": 2,
+		"name": "peacock",
+		"phone": "111-111-112",
+		"email": "msh2@yahoo.com",
+		"image": { "url": "https://images.unsplash.com/photo-1639453632997-31ca966ec491?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OHx8Z3JlZW4lMjBiaWclMjBiaXJkc3xlbnwwfHwwfHw%3D&auto=format&fit=crop&w=900&q=60", "alt": "peacock" },
+		"favoured": false
+	},
+	{
+		"id": 3,
+		"name": "peacock",
+		"phone": "111-111-113",
+		"email": "msh3@yahoo.com",
+		"image": { "url": "https://images.unsplash.com/photo-1639453632997-31ca966ec491?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OHx8Z3JlZW4lMjBiaWclMjBiaXJkc3xlbnwwfHwwfHw%3D&auto=format&fit=crop&w=900&q=60", "alt": "peacock" },
+		"favoured": true
+	},
+	{
+		"id": 4,
+		"name": "peacock",
+		"phone": "111-111-114",
+		"email": "msh4@yahoo.com",
+		"image": { "url": "https://images.unsplash.com/photo-1639453632997-31ca966ec491?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OHx8Z3JlZW4lMjBiaWclMjBiaXJkc3xlbnwwfHwwfHw%3D&auto=format&fit=crop&w=900&q=60", "alt": "peacock" },
+		"favoured": false
+	},
+	{
+		"id": 5,
+		"name": "peacock",
+		"phone": "111-111-115",
+		"email": "msh5@yahoo.com",
+		"image": { "url": "https://images.unsplash.com/photo-1639453632997-31ca966ec491?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OHx8Z3JlZW4lMjBiaWclMjBiaXJkc3xlbnwwfHwwfHw%3D&auto=format&fit=crop&w=900&q=60", "alt": "peacock" },
+		"favoured": false
+	}
+]
