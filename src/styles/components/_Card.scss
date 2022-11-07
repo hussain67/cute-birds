@@ -9,9 +9,11 @@ body {
 
 	&__header {
 		position: relative;
+		width: 300px;
+		height: 215px;
 	}
 	&__img {
-		height: auto;
+		height: 100%;
 		width: 100%;
 	}
 	&__icon {

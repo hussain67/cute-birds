@@ -1,12 +1,12 @@
 import "./App.css";
 import "./styles/main.scss";
 
-import Cards from "./components/cards/Cards";
+import HomePage from "./components/home/HomePage";
 
 function App() {
 	return (
 		<div className="App">
-			<Cards />
+			<HomePage />
 		</div>
 	);
 }
