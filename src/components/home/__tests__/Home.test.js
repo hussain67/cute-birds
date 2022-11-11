@@ -1,13 +1,11 @@
 import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
-//import Filter from "../../filter/Filter.js";
-//import Cards from "../../cards/Cards";
+
 import HomePage from "../HomePage";
 
 describe("integration of filter and card component", () => {
-	render(<HomePage />);
-
 	test("should display cards according to size selected", async () => {
+		render(<HomePage />);
 		// Find the select element size
 		const selected = screen.getByLabelText(/size/i);
 
@@ -27,7 +25,9 @@ describe("integration of filter and card component", () => {
 		expect(cardsLarge.length).toBe(3);
 	});
 
-	test.only("Should display cards according to selected favourate", async () => {
+	test("Should display cards according to selected favourate", async () => {
+		render(<HomePage />);
+
 		//Initial state any
 		const cardsAny = await screen.findAllByRole("article");
 		expect(cardsAny.length).toBe(6);
