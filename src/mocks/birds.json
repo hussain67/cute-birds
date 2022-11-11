@@ -24,7 +24,7 @@
 		"phone": "111-111-113",
 		"email": "msh3@yahoo.com",
 		"image": { "url": "https://media.istockphoto.com/id/173856457/photo/robin.jpg?s=612x612&w=is&k=20&c=yLaZqYX9oKPAAYuaOPakf9gyC5wpSqUKat_nkiJgOtc=", "alt": "robin" },
-		"favoured": true
+		"favoured": false
 	},
 	{
 		"id": 4,

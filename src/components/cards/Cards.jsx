@@ -1,14 +1,11 @@
-import React, { useEffect, useState } from "react";
-import axios from "axios";
+import React, { useContext } from "react";
+
 import Card from "../card/Card";
+import { BirdContext } from "../../context/birdContext";
 //import birds from "../../mocks/birds.json";
 
 const Cards = () => {
-	const [birds, setBirds] = useState([]);
-	useEffect(() => {
-		axios.get("http://localhost:4000/birds").then(birds => setBirds(birds.data));
-	}, [birds]);
-
+	const { birds } = useContext(BirdContext);
 	return (
 		<main className="cards">
 			{birds.map(bird => (

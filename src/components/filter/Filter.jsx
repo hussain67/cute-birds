@@ -1,6 +1,8 @@
 import React from "react";
+import { useBirds } from "../../context/birdContext.js";
 
 const Filter = () => {
+	const { setSelected } = useBirds();
 	return (
 		<section className="filter">
 			<div>
@@ -8,6 +10,7 @@ const Filter = () => {
 				<select
 					name="favourate"
 					id="favourate"
+					onChange={setSelected}
 				>
 					<option value="any">Any</option>
 					<option value="favourate">Favourate</option>
@@ -21,6 +24,7 @@ const Filter = () => {
 					name="size"
 					id="size"
 					className="filter__size"
+					onChange={setSelected}
 				>
 					<option value="any">Any</option>
 					<option value="small">Small</option>

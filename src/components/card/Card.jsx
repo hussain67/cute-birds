@@ -1,9 +1,9 @@
 import React from "react";
-import { useState } from "react";
 import { AiOutlineHeart, AiFillHeart } from "react-icons/ai";
+import { useBirds } from "../../context/birdContext";
 
-const Card = ({ name, phone, email, image }) => {
-	const [favourate, setFavourate] = useState(false);
+const Card = ({ id, name, phone, email, image, favoured }) => {
+	const { handleFavourate } = useBirds();
 
 	return (
 		<article className="card">
@@ -14,12 +14,15 @@ const Card = ({ name, phone, email, image }) => {
 					alt={image.alt}
 				/>
 
-				<div
+				<button
+					data-testid={id}
 					className="card__icon"
-					onClick={() => setFavourate(!favourate)}
+					onClick={() => {
+						handleFavourate(id, !favoured);
+					}}
 				>
-					{favourate ? <AiFillHeart /> : <AiOutlineHeart />}
-				</div>
+					{favoured ? <AiFillHeart /> : <AiOutlineHeart />}
+				</button>
 			</div>
 
 			<h2 className="card__name">{name}</h2>
