@@ -49,7 +49,7 @@ describe("Should show the error message on invalid input", () => {
 		userEvent.click(submit);
 
 		//Find the error message
-		const errorMessage = await screen.findByText(/password is required/i);
+		const errorMessage = await screen.findByText(/Email is required/i);
 		expect(errorMessage).toBeInTheDocument();
 	});
 
@@ -65,7 +65,7 @@ describe("Should show the error message on invalid input", () => {
 		userEvent.click(submit);
 
 		//Find the error message
-		const errorMessage = await screen.findByText(/password is required/i);
+		const errorMessage = await screen.findByText(/password with at least 6 characters is required/i);
 		expect(errorMessage).toBeInTheDocument();
 	});
 
@@ -85,7 +85,7 @@ describe("Should show the error message on invalid input", () => {
 		userEvent.click(submit);
 
 		//Find the error message
-		const errorMessage = await screen.findByText(/confirm password is required/i);
+		const errorMessage = await screen.findByText(/Passwords do not match, try again/i);
 		expect(errorMessage).toBeInTheDocument();
 	});
 });

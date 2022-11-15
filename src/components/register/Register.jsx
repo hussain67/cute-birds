@@ -24,11 +24,11 @@ const Login = () => {
 		if (!validator.isEmail(email)) {
 			errors.email = "Email is required";
 		}
-		if (!password) {
-			errors.password = "Password is required";
+		if (password.length < 6) {
+			errors.password = "Password with at least 6 characters is required";
 		}
-		if (!confirmPassword) {
-			errors.confirmPassword = "Confirm password is required";
+		if (confirmPassword !== password) {
+			errors.confirmPassword = "Passwords do not match, try again";
 		}
 		setErrors(errors);
 		return Object.keys(errors).length === 0;
