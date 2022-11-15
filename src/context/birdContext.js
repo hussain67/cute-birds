@@ -41,10 +41,8 @@ const BirdProvider = props => {
 	}, [filter.size, filter.favourate, birds]);
 
 	useEffect(() => {
-		if (birds.length === 0) {
-			axios.get("http://localhost:4000/birds").then(birds => setBirds(birds.data));
-		}
-	}, [birds.length]);
+		axios.get("http://localhost:4000/birds").then(birds => setBirds(birds.data));
+	}, []);
 
 	return (
 		<BirdContext.Provider

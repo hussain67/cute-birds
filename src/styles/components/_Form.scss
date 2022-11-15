@@ -1,0 +1,35 @@
+.form-register {
+	margin: 0 auto;
+	background-color: #fff;
+	max-width: 687px;
+	//padding: 20px;
+}
+.form {
+	background-color: silver;
+	box-sizing: border-box;
+	//margin: 20px;
+
+	&__group {
+		padding: 1rem 1.5rem;
+		@media screen and (min-width: 992px) {
+			display: grid;
+			grid-template-columns: 200px 1fr;
+		}
+	}
+	&__label {
+		display: block;
+		text-align: left;
+		width: 100%;
+
+		margin-bottom: 1.25rem;
+	}
+	&__control {
+		display: block;
+		height: 1.75rem;
+		width: 100%;
+	}
+	&__submit {
+		display: flex;
+		justify-content: end;
+	}
+}
