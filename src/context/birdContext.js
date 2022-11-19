@@ -20,7 +20,6 @@ const BirdProvider = props => {
 		setFilter(newFilter);
 	}
 	function handleFavourate(id, favourate) {
-		console.log(id, favourate);
 		let favourateBirds = birds.map(bird => {
 			if (bird.id === id) {
 				bird.favoured = favourate;

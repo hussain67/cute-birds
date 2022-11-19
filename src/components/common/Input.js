@@ -9,16 +9,18 @@ const Input = ({ name, label, value, error, handleChange }) => {
 			>
 				{label}
 			</label>
-			<input
-				type={name}
-				className="form__control"
-				id={name}
-				name={name}
-				value={value}
-				onChange={handleChange}
-				autoComplete="off"
-			/>
-			{error && <div>{error}</div>}
+			<div>
+				<input
+					type={name}
+					className="form__control"
+					id={name}
+					name={name}
+					value={value}
+					onChange={handleChange}
+					autoComplete="false"
+				/>
+				{error && <div className="form__error">{error}</div>}
+			</div>
 		</div>
 	);
 };

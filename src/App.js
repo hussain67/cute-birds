@@ -1,25 +1,31 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Register from "./components/register/Register";
+import Authentication from "./components/authentication/Authentication";
 import "./App.css";
 import "./styles/main.scss";
 
 import HomePage from "./components/home/HomePage";
+import { BirdProvider } from "./context/birdContext";
+import { UserProvider } from "./context/userContext";
 
 function App() {
 	return (
 		<div className="App">
-			<BrowserRouter>
-				<Routes>
-					<Route
-						path="/"
-						element={<Register />}
-					/>
-					<Route
-						path="/birds"
-						element={<HomePage />}
-					/>
-				</Routes>
-			</BrowserRouter>
+			<UserProvider>
+				<BirdProvider>
+					<BrowserRouter>
+						<Routes>
+							<Route
+								path="/"
+								element={<Authentication />}
+							/>
+							<Route
+								path="/birds"
+								element={<HomePage />}
+							/>
+						</Routes>
+					</BrowserRouter>
+				</BirdProvider>
+			</UserProvider>
 		</div>
 	);
 }

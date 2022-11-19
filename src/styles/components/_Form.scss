@@ -2,12 +2,10 @@
 	margin: 0 auto;
 	background-color: #fff;
 	max-width: 687px;
-	//padding: 20px;
 }
 .form {
 	background-color: silver;
 	box-sizing: border-box;
-	//margin: 20px;
 
 	&__group {
 		padding: 1rem 1.5rem;
@@ -27,9 +25,20 @@
 		display: block;
 		height: 1.75rem;
 		width: 100%;
+		border-width: 0;
 	}
 	&__submit {
 		display: flex;
-		justify-content: end;
+		justify-content: flex-end;
+	}
+	&__error {
+		background-color: rgb(197, 46, 46);
+		color: #fff;
+		padding: 0 2px;
+		height: 2rem;
+		width: 100%;
+		display: flex;
+		align-items: center;
+		justify-content: center;
 	}
 }
