@@ -3,13 +3,14 @@ body {
 }
 
 .card {
-	padding: 20px;
 	background-color: #fff;
-	width: 300px;
+	width: 95%;
+	max-width: 450px;
+	margin: 0 auto 20px;
+	padding-bottom: 10px;
 
 	&__header {
 		position: relative;
-		width: 300px;
 		height: 215px;
 	}
 	&__img {

@@ -1,7 +1,17 @@
 .nav {
-	height: 3rem;
+	height: 3.75rem;
 	display: flex;
 	justify-content: space-around;
 	align-items: center;
 	background-color: bisque;
+	padding: 10px;
+	color: blue;
+	font-weight: 500;
+	font-size: 1.25rem;
+	&__banner {
+		font-size: 2rem;
+	}
+	@include atSmall {
+		height: 4.5rem;
+	}
 }

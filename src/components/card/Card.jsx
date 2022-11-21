@@ -7,7 +7,7 @@ const Card = ({ id, name, phone, email, image, favoured }) => {
 
 	return (
 		<article className="card">
-			<div className="card__header">
+			<header className="card__header">
 				<img
 					className="card__img"
 					src={image.url}
@@ -23,7 +23,7 @@ const Card = ({ id, name, phone, email, image, favoured }) => {
 				>
 					{favoured ? <AiFillHeart /> : <AiOutlineHeart />}
 				</button>
-			</div>
+			</header>
 
 			<h2 className="card__name">{name}</h2>
 			<h3>{phone}</h3>

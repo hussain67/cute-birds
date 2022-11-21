@@ -5,13 +5,13 @@ import Nav from "../nav/Nav";
 
 const HomePage = () => {
 	return (
-		<main className="home">
+		<>
 			<Nav />
-			<section className="home__content">
+			<main className="main-content">
 				<Filter />
 				<Cards />
-			</section>
-		</main>
+			</main>
+		</>
 	);
 };
 

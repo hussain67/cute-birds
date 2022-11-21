@@ -1,6 +1,21 @@
 .filter {
-	width: 120px;
-	&__size {
+	padding: 20px;
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+
+	select {
 		width: 100px;
+	}
+	label {
+		margin-right: 20px;
+	}
+	@include atMedium {
+		display: block;
+		article {
+			display: flex;
+			justify-content: space-between;
+			//align-items: flex-start;
+			margin-bottom: 20px;
+		}
 	}
 }

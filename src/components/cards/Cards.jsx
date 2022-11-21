@@ -7,14 +7,14 @@ import { BirdContext } from "../../context/birdContext";
 const Cards = () => {
 	const { birds } = useContext(BirdContext);
 	return (
-		<main className="cards">
+		<section className="cards">
 			{birds.map(bird => (
 				<Card
 					key={bird.id}
 					{...bird}
 				/>
 			))}
-		</main>
+		</section>
 	);
 };
 

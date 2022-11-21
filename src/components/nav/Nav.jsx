@@ -11,7 +11,7 @@ const Nav = () => {
 				className="nav__name"
 				data-testid="user"
 			>
-				{user}
+				Welcome {user}
 			</div>
 		</nav>
 	);
