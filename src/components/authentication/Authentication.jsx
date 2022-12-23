@@ -57,14 +57,15 @@ const Login = () => {
 		if (!formIsValid(isRegistered)) return;
 		if (isRegistered) {
 			axios
-				.post("http://localhost:4000", { name: signupInput.name })
+				//.post("http://localhost:4000", { name: signupInput.name })
+				.post("https://cute-birds-be.onrender.com", { name: signupInput.name })
 
 				.then(response => {
 					setClient(response.data.name);
 					setUser(response.data.name);
 					setTimeout(() => {
 						navigate("/birds");
-					}, 3000);
+					}, 1000);
 				})
 				.catch(error => {
 					setLoginError(error);

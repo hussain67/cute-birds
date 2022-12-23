@@ -1,12 +1,16 @@
-import React, { useContext } from "react";
+import React from "react";
+import { useBirds } from "../../context/birdContext";
 
 import Card from "../card/Card";
-import { BirdContext } from "../../context/birdContext";
+import Spinner from "../common/Spinner";
 //import birds from "../../mocks/birds.json";
 
 const Cards = () => {
-	const { birds } = useContext(BirdContext);
-	return (
+	const { birds, isLoading } = useBirds();
+
+	return isLoading ? (
+		<Spinner />
+	) : (
 		<section className="cards">
 			{birds.map(bird => (
 				<Card

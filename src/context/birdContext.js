@@ -8,6 +8,7 @@ export const BirdContext = createContext({
 //It is possible to provide initial value createContext({birds: [], })
 const BirdProvider = props => {
 	const [birds, setBirds] = useState([]);
+	const [isLoading, setIsLoading] = useState(true);
 
 	const [selectedBirds, setSelectedBirds] = useState([]);
 
@@ -40,12 +41,16 @@ const BirdProvider = props => {
 	}, [filter.size, filter.favourate, birds]);
 
 	useEffect(() => {
-		axios.get("http://localhost:4000/birds").then(birds => setBirds(birds.data));
+		//axios.get("http://localhost:4000/birds").then(birds => {
+		axios.get("https://cute-birds-be.onrender.com").then(birds => {
+			setBirds(birds.data);
+			setIsLoading(false);
+		});
 	}, []);
 
 	return (
 		<BirdContext.Provider
-			value={{ birds: selectedBirds, setSelected, handleFavourate }}
+			value={{ birds: selectedBirds, setSelected, handleFavourate, isLoading }}
 			{...props}
 		/>
 	);

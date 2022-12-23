@@ -1,8 +1,8 @@
 .filter {
 	padding: 20px;
-	display: grid;
-	grid-template-columns: 1fr 1fr;
-
+	display: flex;
+	//grid-template-columns: 1fr 1fr;
+	justify-content: space-between;
 	select {
 		width: 100px;
 	}
@@ -10,7 +10,12 @@
 		margin-right: 20px;
 	}
 	@include atMedium {
-		display: block;
+		//display: block;
+		//grid-template-columns: 1fr;
+		//grid-template-rows: 40px 40px;
+		display: flex;
+		flex-direction: column;
+		justify-content: flex-start;
 		article {
 			display: flex;
 			justify-content: space-between;
