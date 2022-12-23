@@ -42,7 +42,7 @@ const BirdProvider = props => {
 
 	useEffect(() => {
 		//axios.get("http://localhost:4000/birds").then(birds => {
-		axios.get("https://cute-birds-be.onrender.com").then(birds => {
+		axios.get("https://cute-birds-be.onrender.com/birds").then(birds => {
 			setBirds(birds.data);
 			setIsLoading(false);
 		});
