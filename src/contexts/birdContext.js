@@ -48,7 +48,7 @@ const BirdProvider = props => {
 	}, [filter.size, filter.favourate, birds]);
 
 	useEffect(() => {
-		axios.get(url).then(birds => {
+		axios.get("https://pivot-be.onrender.com/birds").then(birds => {
 			setBirds(birds.data);
 			setIsLoading(false);
 		});
