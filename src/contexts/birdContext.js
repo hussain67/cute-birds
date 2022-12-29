@@ -8,7 +8,7 @@ export const BirdContext = createContext({
 let url;
 
 if (process.env.NODE_ENV === "production") {
-	url = "https://pivot-be.onrender.com/birds";
+	url = "https://cute-birds-be.onrender.com/birds";
 } else {
 	url = "http://localhost:4000/birds";
 }
@@ -48,7 +48,7 @@ const BirdProvider = props => {
 	}, [filter.size, filter.favourate, birds]);
 
 	useEffect(() => {
-		axios.get("https://pivot-be.onrender.com/birds").then(birds => {
+		axios.get(url).then(birds => {
 			setBirds(birds.data);
 			setIsLoading(false);
 		});
