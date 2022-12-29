@@ -8,7 +8,7 @@ export const BirdContext = createContext({
 let url;
 
 if (process.env.NODE_ENV === "production") {
-	url = "https://pivot-be.onrender.com";
+	url = "https://pivot-be.onrender.com/birds";
 } else {
 	url = "http://localhost:4000/birds";
 }
