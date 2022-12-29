@@ -1,9 +1,17 @@
 import React from "react";
-import { useUser } from "../../context/userContext";
+import { useNavigate } from "react-router-dom";
+import { useUser } from "../../contexts/userContext";
+import { signOutUser } from "../../utils/firebase/firebase.utils";
 
 const Nav = () => {
-	const { user } = useUser();
+	const { displayName } = useUser();
 
+	const navigate = useNavigate();
+
+	const signOut = () => {
+		signOutUser();
+		navigate("/");
+	};
 	return (
 		<nav className="nav">
 			<div className="nav__banner">Bird's world</div>
@@ -11,7 +19,10 @@ const Nav = () => {
 				className="nav__name"
 				data-testid="user"
 			>
-				Welcome {user}
+				Welcome {displayName}
+			</div>
+			<div>
+				<button onClick={signOut}>Log out</button>
 			</div>
 		</nav>
 	);

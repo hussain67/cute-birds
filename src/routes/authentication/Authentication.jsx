@@ -1,13 +1,19 @@
 import React, { useState } from "react";
-import Input from "../common/Input";
 import validator from "validator";
 import { useNavigate } from "react-router-dom";
-import axios from "axios";
-import { useUser } from "../../context/userContext";
 
-const Login = () => {
-	const { setUser } = useUser();
+import { createAuthUserWithEmailAndPassword, createUserDocumentFromAuth, getUserInfo, signInAuthUserWithEmailAndPassword } from "../../utils/firebase/firebase.utils";
+import Input from "../../components/common/Input";
+import { useUser } from "../../contexts/userContext";
+
+const Authentication = () => {
+	const { setDisplayName } = useUser();
+
 	const navigate = useNavigate();
+
+	const navigateToBirdsPage = () => {
+		navigate("/birds");
+	};
 
 	const [signupInput, setSignupInput] = useState({
 		name: "",
@@ -15,20 +21,20 @@ const Login = () => {
 		password: "",
 		confirmPassword: ""
 	});
+
+	const { name, email, password, confirmPassword } = signupInput;
 	const [isRegistered, setIsRegistered] = useState(true);
 	const [errors, setErrors] = useState({});
-	const [loginError, setLoginError] = useState("");
-	const [client, setClient] = useState("");
-	console.log(loginError);
-	function handleChange(event) {
+
+	const handleChange = event => {
 		const { name, value } = event.target;
 		setSignupInput({
 			...signupInput,
 			[name]: value
 		});
-	}
-	function formIsValid(registered) {
-		const { name, email, password, confirmPassword } = signupInput;
+	};
+
+	const formIsValid = registered => {
 		let errors = {};
 
 		if (!registered) {
@@ -50,38 +56,52 @@ const Login = () => {
 
 		setErrors(errors);
 		return Object.keys(errors).length === 0;
-	}
-	function handleSubmit(e) {
+	};
+
+	const handleSubmit = async e => {
 		e.preventDefault();
 
 		if (!formIsValid(isRegistered)) return;
 		if (isRegistered) {
-			axios
-				//.post("http://localhost:4000", { name: signupInput.name })
-				.post("https://cute-birds-be.onrender.com", { name: signupInput.name })
+			try {
+				const { user } = await signInAuthUserWithEmailAndPassword(email, password);
 
-				.then(response => {
-					setClient(response.data.name);
-					setUser(response.data.name);
-					setTimeout(() => {
-						navigate("/birds");
-					}, 1000);
-				})
-				.catch(error => {
-					setLoginError(error);
-					setTimeout(() => {
-						setLoginError("");
-					}, 2000);
-				});
+				const userData = await getUserInfo(user);
+				setDisplayName(userData.displayName);
+				if (user) {
+					navigateToBirdsPage();
+				}
+			} catch (error) {
+				switch (error.code) {
+					case "auth/wrong-password":
+						alert("Password do not match");
+						break;
+					case "auth/user-not-found":
+						alert("No user found with this Email");
+						break;
+					default:
+						console.log(error.code);
+				}
+			}
 		}
-	}
-	//name, id and type have the same value so any one can be used as propsß
-	if (client) {
-		return <h1> Welcome {client}</h1>;
-	}
-	if (loginError) {
-		return <h1> Invalid credentials </h1>;
-	}
+		if (!isRegistered) {
+			//The user is authenticated using email and password
+			try {
+				const { user } = await createAuthUserWithEmailAndPassword(email, password);
+				setDisplayName(name);
+				await createUserDocumentFromAuth(user, { displayName: name });
+				if (user) {
+					navigateToBirdsPage();
+				}
+			} catch (error) {
+				if (error.code === "auth/email-already-in-use") {
+					alert("Email is already in use, Try another Email");
+				}
+				console.log(error.code);
+			}
+		}
+	};
+
 	return (
 		<article className="form-register">
 			<h1>{isRegistered ? "Login" : "Register"}</h1>
@@ -120,6 +140,7 @@ const Login = () => {
 					error={errors.password}
 					handleChange={handleChange}
 				/>
+
 				{isRegistered ? (
 					""
 				) : (
@@ -138,15 +159,15 @@ const Login = () => {
 						className="btn btn__submit"
 						type="submit"
 					>
-						Submit
+						{isRegistered ? "Sign In" : "Sign Up"}
 					</button>
 				</div>
 			</form>
 			<p>
-				{isRegistered ? "Not registered yet?" : "Already registered?"} <button onClick={() => setIsRegistered(!isRegistered)}> {isRegistered ? "Register" : "Login"}</button>
+				{isRegistered ? "Not registered yet?" : "Already registered?"} <button onClick={() => setIsRegistered(!isRegistered)}> {isRegistered ? "Sign Up" : "Log In"}</button>
 			</p>
 		</article>
 	);
 };
 
-export default Login;
+export default Authentication;

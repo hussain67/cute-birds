@@ -1,11 +1,11 @@
 import { render, screen } from "../../../test-utils/testing-library-utils";
 import userEvent from "@testing-library/user-event";
 
-import HomePage from "../HomePage";
+import Birds from "../Birds";
 
 describe("integration of filter and card component", () => {
 	test("should display cards according to size selected", async () => {
-		render(<HomePage />);
+		render(<Birds />);
 		// Find the select element size
 		const selected = screen.getByLabelText(/size/i);
 
@@ -26,7 +26,7 @@ describe("integration of filter and card component", () => {
 	});
 
 	test("Should display cards according to selected favourate", async () => {
-		render(<HomePage />);
+		render(<Birds />);
 
 		//Initial state any
 		const cardsAny = await screen.findAllByRole("article");

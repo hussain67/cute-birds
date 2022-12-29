@@ -5,6 +5,13 @@ export const BirdContext = createContext({
 	birds: []
 });
 
+let url;
+
+if (process.env.NODE_ENV === "production") {
+	url = "https://pivot-be.onrender.com";
+} else {
+	url = "http://localhost:4000/birds";
+}
 //It is possible to provide initial value createContext({birds: [], })
 const BirdProvider = props => {
 	const [birds, setBirds] = useState([]);
@@ -41,8 +48,7 @@ const BirdProvider = props => {
 	}, [filter.size, filter.favourate, birds]);
 
 	useEffect(() => {
-		//axios.get("http://localhost:4000/birds").then(birds => {
-		axios.get("https://cute-birds-be.onrender.com/birds").then(birds => {
+		axios.get(url).then(birds => {
 			setBirds(birds.data);
 			setIsLoading(false);
 		});

@@ -1,11 +1,11 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Authentication from "./components/authentication/Authentication";
 import "./App.css";
 import "./styles/main.scss";
-
-import HomePage from "./components/home/HomePage";
-import { BirdProvider } from "./context/birdContext";
-import { UserProvider } from "./context/userContext";
+import { BirdProvider } from "./contexts/birdContext";
+import { UserProvider } from "./contexts/userContext";
+import Authentication from "./routes/authentication/Authentication";
+import Birds from "./routes/birds/Birds";
+import Home from "./routes/home/Home";
 
 function App() {
 	return (
@@ -16,11 +16,15 @@ function App() {
 						<Routes>
 							<Route
 								path="/"
+								element={<Home />}
+							/>
+							<Route
+								path="/authentication"
 								element={<Authentication />}
 							/>
 							<Route
 								path="/birds"
-								element={<HomePage />}
+								element={<Birds />}
 							/>
 						</Routes>
 					</BrowserRouter>

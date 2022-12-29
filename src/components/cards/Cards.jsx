@@ -1,5 +1,5 @@
 import React from "react";
-import { useBirds } from "../../context/birdContext";
+import { useBirds } from "../../contexts/birdContext";
 
 import Card from "../card/Card";
 import Spinner from "../common/Spinner";

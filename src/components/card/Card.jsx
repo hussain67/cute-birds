@@ -1,6 +1,6 @@
 import React from "react";
 import { AiOutlineHeart, AiFillHeart } from "react-icons/ai";
-import { useBirds } from "../../context/birdContext";
+import { useBirds } from "../../contexts/birdContext";
 
 const Card = ({ id, name, phone, email, image, favoured }) => {
 	const { handleFavourate } = useBirds();

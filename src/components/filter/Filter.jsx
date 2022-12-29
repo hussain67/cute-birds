@@ -1,5 +1,5 @@
 import React from "react";
-import { useBirds } from "../../context/birdContext.js";
+import { useBirds } from "../../contexts/birdContext.js";
 
 const Filter = () => {
 	const { setSelected } = useBirds();
