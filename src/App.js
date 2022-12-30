@@ -10,9 +10,9 @@ import Home from "./routes/home/Home";
 function App() {
 	return (
 		<div className="App">
-			<UserProvider>
-				<BirdProvider>
-					<BrowserRouter>
+			<BrowserRouter>
+				<UserProvider>
+					<BirdProvider>
 						<Routes>
 							<Route
 								path="/"
@@ -27,9 +27,9 @@ function App() {
 								element={<Birds />}
 							/>
 						</Routes>
-					</BrowserRouter>
-				</BirdProvider>
-			</UserProvider>
+					</BirdProvider>
+				</UserProvider>
+			</BrowserRouter>
 		</div>
 	);
 }

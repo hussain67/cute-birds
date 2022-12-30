@@ -1,5 +1,6 @@
 import { render } from "@testing-library/react";
-import { BirdProvider } from "../context/birdContext";
+import { BirdProvider } from "../contexts/birdContext";
+//import { BrowserRouter } from "react-router-dom";
 
 const renderWithContext = ui => render(ui, { wrapper: BirdProvider });
 

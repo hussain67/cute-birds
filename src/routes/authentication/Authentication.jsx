@@ -3,7 +3,7 @@ import validator from "validator";
 import { useNavigate } from "react-router-dom";
 
 import { createAuthUserWithEmailAndPassword, createUserDocumentFromAuth, getUserInfo, signInAuthUserWithEmailAndPassword } from "../../utils/firebase/firebase.utils";
-import Input from "../../components/common/Input";
+import Input from "../../components/input-field/Input";
 import { useUser } from "../../contexts/userContext";
 
 const Authentication = () => {
@@ -42,6 +42,7 @@ const Authentication = () => {
 				errors.name = "Name is required";
 			}
 		}
+
 		if (!validator.isEmail(email)) {
 			errors.email = "Email is required";
 		}
@@ -104,7 +105,7 @@ const Authentication = () => {
 
 	return (
 		<article className="form-register">
-			<h1>{isRegistered ? "Login" : "Register"}</h1>
+			<h1>{isRegistered ? "Sign In" : "Sign Up"}</h1>
 
 			<form
 				className="form"
@@ -164,7 +165,7 @@ const Authentication = () => {
 				</div>
 			</form>
 			<p>
-				{isRegistered ? "Not registered yet?" : "Already registered?"} <button onClick={() => setIsRegistered(!isRegistered)}> {isRegistered ? "Sign Up" : "Log In"}</button>
+				{isRegistered ? "Not registered yet?" : "Already registered?"} <button onClick={() => setIsRegistered(!isRegistered)}> {isRegistered ? "Sign Up" : "Sign In"}</button>
 			</p>
 		</article>
 	);

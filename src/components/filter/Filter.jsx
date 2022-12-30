@@ -5,7 +5,7 @@ const Filter = () => {
 	const { setSelected } = useBirds();
 	return (
 		<section className="filter">
-			<article>
+			<div>
 				<label htmlFor="favourate">Favourate</label>
 				<select
 					name="favourate"
@@ -16,9 +16,9 @@ const Filter = () => {
 					<option value="favourate">Favourate</option>
 					<option value="not favourate">Not Favourate</option>
 				</select>
-			</article>
+			</div>
 
-			<article>
+			<div>
 				<label htmlFor="size">Size</label>
 
 				<select
@@ -31,7 +31,7 @@ const Filter = () => {
 					<option value="small">Small</option>
 					<option value="large">Large</option>
 				</select>
-			</article>
+			</div>
 		</section>
 	);
 };

@@ -1,6 +1,6 @@
 import { initializeApp } from "firebase/app";
 
-import { getAuth, signInWithPopup, GoogleAuthProvider, signInWithEmailAndPassword, createUserWithEmailAndPassword, signOut, onAuthStateChanged } from "firebase/auth";
+import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword, signOut, onAuthStateChanged } from "firebase/auth";
 import { getFirestore, doc, getDoc, setDoc } from "firebase/firestore";
 
 const firebaseConfig = {
@@ -22,11 +22,7 @@ const app = initializeApp(firebaseConfig);
 
 //Sign In with google pop up
 
-const provider = new GoogleAuthProvider();
-
 export const auth = getAuth(app);
-
-export const signInWithGooglePopUp = () => signInWithPopup(auth, provider);
 
 //Create user document
 

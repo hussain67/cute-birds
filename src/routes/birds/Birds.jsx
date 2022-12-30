@@ -5,13 +5,13 @@ import Cards from "../../components/cards/Cards";
 
 const Birds = () => {
 	return (
-		<>
+		<div>
 			<Nav />
 			<main className="main-content">
 				<Filter />
 				<Cards />
 			</main>
-		</>
+		</div>
 	);
 };
 

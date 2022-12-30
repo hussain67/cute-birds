@@ -1,19 +1,32 @@
-import { render, screen } from "../../../test-utils/testing-library-utils";
+import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 
 import Birds from "../Birds";
+import { BrowserRouter } from "react-router-dom";
+import { BirdProvider } from "../../../contexts/birdContext";
+
+const renderBirds = () => {
+	render(
+		<BrowserRouter>
+			<BirdProvider>
+				<Birds />
+			</BirdProvider>
+		</BrowserRouter>
+	);
+};
 
 describe("integration of filter and card component", () => {
 	test("should display cards according to size selected", async () => {
-		render(<Birds />);
-		// Find the select element size
-		const selected = screen.getByLabelText(/size/i);
+		renderBirds();
 
 		// Initial state any
 		const cardsAny = await screen.findAllByRole("article");
 		expect(cardsAny.length).toBe(6);
 
+		// Find the select element size
+		const selected = screen.getByLabelText(/size/i);
 		//Selected size small
+
 		userEvent.selectOptions(selected, "small");
 		const cardsSmall = await screen.findAllByRole("article");
 		expect(cardsSmall.length).toBe(3);
@@ -26,7 +39,7 @@ describe("integration of filter and card component", () => {
 	});
 
 	test("Should display cards according to selected favourate", async () => {
-		render(<Birds />);
+		renderBirds();
 
 		//Initial state any
 		const cardsAny = await screen.findAllByRole("article");
