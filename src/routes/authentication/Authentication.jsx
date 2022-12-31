@@ -3,7 +3,7 @@ import validator from "validator";
 import { useNavigate } from "react-router-dom";
 
 import { createAuthUserWithEmailAndPassword, createUserDocumentFromAuth, getUserInfo, signInAuthUserWithEmailAndPassword } from "../../utils/firebase/firebase.utils";
-import Input from "../../components/input-field/Input";
+import InputField from "../../components/input-field/Input";
 import { useUser } from "../../contexts/userContext";
 
 const Authentication = () => {
@@ -104,70 +104,79 @@ const Authentication = () => {
 	};
 
 	return (
-		<article className="form-register">
-			<h1>{isRegistered ? "Sign In" : "Sign Up"}</h1>
+		<section className="authentication">
+			<article className="form-container">
+				<h1>{isRegistered ? "Sign In" : "Sign Up"}</h1>
 
-			<form
-				className="form"
-				onSubmit={handleSubmit}
-				autoComplete="off"
-			>
-				{isRegistered ? (
-					""
-				) : (
-					<Input
-						name={"name"}
-						label="Name"
-						type="text"
-						value={signupInput.name}
-						error={errors.name}
+				<form
+					className="form"
+					onSubmit={handleSubmit}
+					autoComplete="off"
+				>
+					{isRegistered ? (
+						""
+					) : (
+						<InputField
+							name={"name"}
+							label="Name"
+							type="text"
+							value={signupInput.name}
+							error={errors.name}
+							handleChange={handleChange}
+						/>
+					)}
+
+					<InputField
+						name={"email"}
+						label="Email address"
+						type="email"
+						value={signupInput.email}
+						error={errors.email}
 						handleChange={handleChange}
 					/>
-				)}
-
-				<Input
-					name={"email"}
-					label="Email address"
-					type="email"
-					value={signupInput.email}
-					error={errors.email}
-					handleChange={handleChange}
-				/>
-				<Input
-					name={"password"}
-					label="Password"
-					type="password"
-					value={signupInput.password}
-					error={errors.password}
-					handleChange={handleChange}
-				/>
-
-				{isRegistered ? (
-					""
-				) : (
-					<Input
-						name={"confirmPassword"}
-						label="Confirm password"
+					<InputField
+						name={"password"}
+						label="Password"
 						type="password"
-						value={signupInput.confirmPassword}
-						error={errors.confirmPassword}
+						value={signupInput.password}
+						error={errors.password}
 						handleChange={handleChange}
 					/>
-				)}
 
-				<div className="form__submit">
+					{isRegistered ? (
+						""
+					) : (
+						<InputField
+							name={"confirmPassword"}
+							label="Confirm password"
+							type="password"
+							value={signupInput.confirmPassword}
+							error={errors.confirmPassword}
+							handleChange={handleChange}
+						/>
+					)}
+
+					<div className="form__submit">
+						<button
+							className="btn btn__submit"
+							type="submit"
+						>
+							{isRegistered ? "Sign In" : "Sign Up"}
+						</button>
+					</div>
+				</form>
+				<div className="form__sign-up">
+					{isRegistered ? "Not registered yet?" : "Already registered?"}{" "}
 					<button
-						className="btn btn__submit"
-						type="submit"
+						className="btn"
+						onClick={() => setIsRegistered(!isRegistered)}
 					>
-						{isRegistered ? "Sign In" : "Sign Up"}
+						{" "}
+						{isRegistered ? "Sign Up" : "Sign In"}
 					</button>
 				</div>
-			</form>
-			<p>
-				{isRegistered ? "Not registered yet?" : "Already registered?"} <button onClick={() => setIsRegistered(!isRegistered)}> {isRegistered ? "Sign Up" : "Sign In"}</button>
-			</p>
-		</article>
+			</article>
+		</section>
 	);
 };
 

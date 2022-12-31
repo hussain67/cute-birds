@@ -1,5 +1,5 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import "./App.css";
+import "./App.scss";
 import "./styles/main.scss";
 import { BirdProvider } from "./contexts/birdContext";
 import { UserProvider } from "./contexts/userContext";

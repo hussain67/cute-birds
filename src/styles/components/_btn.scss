@@ -1,8 +1,17 @@
 .btn {
-	display: block;
-	width: 100%;
+	display: inline-block;
 	cursor: pointer;
 	color: #fff;
 	padding: 0.5rem;
-	background: rgb(152, 181, 216);
+	background: rgb(22, 44, 70);
+	border: none;
+	border-radius: 4px;
+	transition: all 0.4s;
+	&__submit {
+		width: 50%;
+	}
+
+	&:hover {
+		background: rgb(67, 106, 154);
+	}
 }

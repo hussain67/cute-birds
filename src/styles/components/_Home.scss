@@ -2,4 +2,26 @@
 	width: 100vw;
 	height: 100vh;
 	background: url("../../assets/birds.jpg") center/cover fixed no-repeat;
+
+	&__content {
+		height: 100vh;
+		display: grid;
+		place-content: center;
+		text-align: center;
+		color: #fff;
+		h1 {
+			background-color: rgba(65, 36, 36, 0.4);
+			padding: 15px;
+			border-radius: 7px;
+		}
+		button {
+			//width: 60px;
+			cursor: pointer;
+			background-color: rgba(65, 36, 36, 0.5);
+			color: #fff;
+			padding: 8px 15px;
+			border-radius: 5px;
+			margin-top: 15px;
+		}
+	}
 }

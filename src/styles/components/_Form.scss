@@ -1,10 +1,12 @@
-.form-register {
+.form-container {
 	margin: 0 auto;
-	background-color: #fff;
+	color: #fff;
+	padding: 15px;
+	//background-color: rgb(206, 200, 200);
+	background-color: rgb(67, 62, 62);
 	max-width: 687px;
 }
 .form {
-	background-color: silver;
 	box-sizing: border-box;
 
 	&__group {
@@ -18,7 +20,7 @@
 		display: block;
 		text-align: left;
 		width: 100%;
-
+		color: #fff;
 		margin-bottom: 1.25rem;
 	}
 	&__control {
@@ -29,7 +31,14 @@
 	}
 	&__submit {
 		display: flex;
-		justify-content: flex-end;
+		justify-content: center;
+		@media screen and (min-width: 992px) {
+			justify-content: flex-start;
+			margin-left: 220px;
+		}
+	}
+	&__sign-up {
+		padding-top: 15px;
 	}
 	&__error {
 		background-color: rgb(197, 46, 46);

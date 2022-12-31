@@ -1,25 +1,22 @@
 .filter {
 	padding: 20px;
 	display: flex;
-	//grid-template-columns: 1fr 1fr;
 	justify-content: space-between;
 	select {
 		width: 100px;
+		align-self: flex-end;
 	}
 	label {
 		margin-right: 20px;
 	}
 	@include atMedium {
-		//display: block;
-		//grid-template-columns: 1fr;
-		//grid-template-rows: 40px 40px;
 		display: flex;
 		flex-direction: column;
 		justify-content: flex-start;
-		article {
+		.select {
 			display: flex;
 			justify-content: space-between;
-			//align-items: flex-start;
+
 			margin-bottom: 20px;
 		}
 	}

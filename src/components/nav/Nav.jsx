@@ -22,7 +22,12 @@ const Nav = () => {
 				Welcome {displayName}
 			</div>
 			<div>
-				<button onClick={signOut}>Log out</button>
+				<button
+					className="btn"
+					onClick={signOut}
+				>
+					Log out
+				</button>
 			</div>
 		</nav>
 	);

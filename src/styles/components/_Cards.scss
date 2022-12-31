@@ -3,11 +3,10 @@
 	margin: 0 auto;
 	display: grid;
 	@include atSmall {
+		padding-top: 20px;
 		grid-template-columns: 1fr 1fr;
 	}
 	@include atMedium {
 		grid-template-columns: 1fr 1fr 1fr;
 	}
-
-	//gap: 20px;
 }
